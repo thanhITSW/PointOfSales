@@ -13,13 +13,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class account {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String fullName;
     private String email;
+    private String username;
     private String password;
     private String phoneNumber;
     private String role;
+    private boolean isActive;
+    private String status;
+    private String urlAvatar;
 }
