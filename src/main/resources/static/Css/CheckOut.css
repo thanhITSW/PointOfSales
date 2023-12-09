@@ -18,7 +18,6 @@ body {
     color: #fff; /* White text color */
     background-size: cover;
     background-position: center;
-    overflow-x: hidden;
 }
 
 :root {
@@ -292,7 +291,7 @@ h1 {
 }
 
 input[type=text] {
-  width: 90%;
+  width: 100%;
   margin-bottom: 20px;
   padding: 12px;
   border: 1px solid #ccc;

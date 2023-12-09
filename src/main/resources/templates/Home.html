@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar menu With Sub-menus | Using HTML, CSS & JQuery</title>
+    <title>Home page</title>
     <link rel="stylesheet" href="/Css/Home.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -18,717 +18,191 @@
 </head>
 
 <body>
+
     <div class="container">
         <!-- =============== Navigation ================ -->
-        <div class="container">
-            <!-- =============== Navigation ================ -->
-            <div class="navigation">
-                <div class="menu-btn">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </div>
-    
-                <div class="side-bar">
-                    <header>
-                        <div class="close-btn">
-                            <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                        <img class="logo-leftbar" src="Image/Apple.jpg" alt="">
-                        <h1>Apple Store</h1>
-                    </header>
-    
-                    <div class="menu">
-    
-                        <div class="item">
-                            <a href="Dashboard.html">
-                                <i class="far fa-eye"></i>
-                                Dashboard
-                            </a>
-                        </div>
-    
-                        <div class="item">
-                            <a href="Home.html">
-                                <i class="fas fa-house-user"></i>
-                                Home
-                            </a>
-                        </div>
-    
-                        <div class="item">
-                            <a class="sub-btn">
-                                <i class="fas fa-box-open"></i>
-                                Products
-                                <i class="fas fa-angle-right dropdown"></i>
-                            </a>
-    
-                            <div class="sub-menu">
-                                <a href="ManageProducts.html" class="sub-item">
-                                    <i class="far fa-clipboard"></i>
-                                    Manage Productions
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="item">
-                            <a class="sub-btn">
-                                <i class="fas fa-user-lock"></i>
-                                Account
-                                <i class="fas fa-angle-right dropdown"></i>
-                            </a>
-    
-                            <div class="sub-menu">
-                                <a href="ManageAccount.html" class="sub-item">
-                                    <i class="far fa-plus-square"></i>
-                                    Manage account
-                                </a>
-    
-                                <a href="#" class="sub-item">
-                                    <i class="far fa-id-card"></i>
-                                    Infomation
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="item">
-                            <a href="CheckOut.html">
-                                <i class="fab fa-apple-pay" style='font-size:20px'></i>
-                                Check Out
+        <div class="navigation">
+            <div class="menu-btn">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+
+            <div class="side-bar">
+                <header>
+                    <div class="close-btn">
+                        <ion-icon name="close-outline"></ion-icon>
+                    </div>
+                    <img class="logo-leftbar" src="/Image/Apple.jpg" alt="">
+                    <h1>Apple Store</h1>
+                </header>
+
+                <div class="menu">
+
+                    <div class="item">
+                        <a href="/dashboard">
+                            <i class="far fa-eye"></i>
+                            Dashboard
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a href="/">
+                            <i class="fas fa-house-user"></i>
+                            Home
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a class="sub-btn">
+                            <i class="fas fa-box-open"></i>
+                            Products
+                            <i class="fas fa-angle-right dropdown"></i>
+                        </a>
+
+                        <div class="sub-menu">
+                            <a href="/products" class="sub-item">
+                                <i class="far fa-clipboard"></i>
+                                Manage Production
                             </a>
                         </div>
                     </div>
-                </div>
-    
-            </div>
-    
-    
-            <!-- ========================= Main ==================== -->
-            <div class="main">
-    
-                <div class="main-content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="table-wrapper">
-            
-                                <div class="table-title">
-                                    <div class="row">
-                                        <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
-                                            <h2 class="ml-lg-2">Manage Employees</h2>
-                                        </div>
-                                        <div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
-                                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal">
-                                                <i class="material-icons">&#xE147;</i>
-                                                <span>Add New Employees</span>
-                                            </a>
-                                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal">
-                                                <i class="material-icons">&#xE15C;</i>
-                                                <span>Delete</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-            
-                                <table class="table table-striped table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="selectAll">
-                                                    <label for="selectAll"></label></span></th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                            <th>Phone</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-            
-                                    <tbody>
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox1" name="option[]" value="1">
-                                                <label for="checkbox1"></label> </span></th>
-                                            <th>Thomas Hardy</th>
-                                            <th>ThomasHardy@gmail.com</th>
-                                            <th>90r parkdground poland Usa.</th>
-                                            <th>(78-582552-9)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-    
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox2" name="option[]" value="1">
-                                                <label for="checkbox2"></label></span></th>
-                                            <th>Thomas Hardy</th>
-                                            <th>ThomasHardy@gmail.com</th>
-                                            <th>90r parkdground poland Usa.</th>
-                                            <th>(78-582552-9)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-    
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox3" name="option[]" value="1">
-                                                    <label for="checkbox3"></label></span></th>
-                                            <th>Thomas Hardy</th>
-                                            <th>ThomasHardy@gmail.com</th>
-                                            <th>90r parkdground poland Usa.</th>
-                                            <th>(78-582552-9)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-    
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox4" name="option[]" value="1">
-                                                    <label for="checkbox4"></label></span></th>
-                                            <th>Thomas Hardy</th>
-                                            <th>ThomasHardy@gmail.com</th>
-                                            <th>90r parkdground poland Usa.</th>
-                                            <th>(78-582552-9)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-    
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox5" name="option[]" value="1">
-                                                    <label for="checkbox5"></label></span></th>
-                                            <th>Thomas Hardy</th>
-                                            <th>ThomasHardy@gmail.com</th>
-                                            <th>90r parkdground poland Usa.</th>
-                                            <th>(78-582552-9)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-    
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox6" name="option[]" value="1">
-                                                    <label for="checkbox6"></label></span></th>
-                                            <th>Thomas Hardy</th>
-                                            <th>ThomasHardy@gmail.com</th>
-                                            <th>90r parkdground poland Usa.</th>
-                                            <th>(78-582552-9)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-    
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox7" name="option[]" value="1">
-                                                <label for="checkbox7"></label></span> </th>
-                                            <th>Thomas Hardy</th>
-                                            <th>ThomasHardy@gmail.com</th>
-                                            <th>90r parkdground poland Usa.</th>
-                                            <th>(78-582552-9)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-    
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox8" name="option[]" value="1">
-                                                    <label for="checkbox8"></label></span></th>
-                                            <th>Thomas Hardy</th>
-                                            <th>ThomasHardy@gmail.com</th>
-                                            <th>90r parkdground poland Usa.</th>
-                                            <th>(78-582552-9)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-    
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox9" name="option[]" value="1">
-                                                    <label for="checkbox9"></label></span></th>
-                                            <th>Thomas Hardy</th>
-                                            <th>ThomasHardy@gmail.com</th>
-                                            <th>90r parkdground poland Usa.</th>
-                                            <th>(78-582552-9)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-    
-                                        
-            
-            
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox10" name="option[]" value="1">
-                                                    <label for="checkbox10"></label></span></th>
-                                            <th>Dominique Perrier</th>
-                                            <th>dominiquePerrier@gmail.com</th>
-                                            <th>90r ser57, Berlin poland Bermany.</th>
-                                            <th>(78-5235-2-9)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-            
-            
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox11" name="option[]" value="1">
-                                                    <label for="checkbox11"></label></span></th>
-                                            <th>Marai Andres</th>
-                                            <th>MarariAndres@gmail.com</th>
-                                            <th>90r ser57, Berlin poland Bermany.</th>
-                                            <th>(78-239-669)</th>
-                                            <th>
-                                                <a href="#edit" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-            
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox12" name="option[]" value="1">
-                                                    <label for="checkbox12"></label></span>></th>
-                                            <th>Vishweb Design</th>
-                                            <th>vishwebdesign@gmail.com</th>
-                                            <th> B-2 ser57 Nodia East Delhi,India.</th>
-                                            <th>(78-239-669)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-            
-                                        <tr>
-                                            <th><span class="custom-checkbox">
-                                                    <input type="checkbox" id="checkbox13" name="option[]" value="1">
-                                                <label for="checkbox13"></label></span></th>
-                                            <th>Vishwajeet Kumar</th>
-                                            <th>vishkumar234@gmail.com</th>
-                                            <th> B-2 ser57 Nodia East Delhi,India.</th>
-                                            <th>(78-555-229)</th>
-                                            <th>
-                                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-                                                </a>
-                                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-                                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
-                                                </a>
-                                            </th>
-                                        </tr>
-            
-                                    </tbody>
-            
-            
-                                </table>
-                            </div>
+
+                    <div class="item">
+                        <a class="sub-btn">
+                            <i class="fas fa-user-lock"></i>
+                            Account
+                            <i class="fas fa-angle-right dropdown"></i>
+                        </a>
+
+                        <div class="sub-menu">
+                            <a href="/accounts" class="sub-item">
+                                <i class="far fa-plus-square"></i>
+                                Manage account
+                            </a>
+
+                            <a href="/information" class="sub-item">
+                                <i class="fas fa-user"></i>
+                                Your information
+                            </a>
                         </div>
-            
-            
-                        <!----add-modal start--------->
-                        <div class="modal fade" tabindex="-1" id="addEmployeeModal" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Add Employees</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input type="text" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="emil" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <textarea class="form-control" required></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Phone</label>
-                                            <input type="text" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-success">Add</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <!----edit-modal end--------->
-            
-            
-            
-            
-            
-                        <!----edit-modal start--------->
-                        <div class="modal fade" tabindex="-1" id="editEmployeeModal" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Edit Employees</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input type="text" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="emil" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <textarea class="form-control" required></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Phone</label>
-                                            <input type="text" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-success">Save</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <!----edit-modal end--------->
-            
-            
-                        <!----delete-modal start--------->
-                        <div class="modal fade" tabindex="-1" id="deleteEmployeeModal" role="dialog">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Delete Employees</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Are you sure you want to delete this Records</p>
-                                        <p class="text-warning"><small>this action Cannot be Undone,</small></p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-success">Delete</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            
-                        <!----edit-modal end--------->
-            
-            
-            
-            
                     </div>
+
+                    <div class="item">
+                        <a href="/check-out">
+                            <i class="fab fa-apple-pay" style='font-size:20px'></i>
+                            Check Out
+                        </a>
+                    </div>
+
+                    <div class="item"><a href="/accounts/logout"><i class='fas fa-sign-out-alt'></i>Logout</a></div>
                 </div>
             </div>
-    
-    
-    
-    
-    
-    
-    
-    
+
         </div>
 
 
         <!-- ========================= Main ==================== -->
-        <div class="main">
-            <div class="topbar">
-                <div class="search">
-                    <label>
-                        <input type="text" placeholder="Search here">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </label>
+
+        <% if(errorMessage.length> 0) { %>
+            <p id="errorMessageAlert" class="alert fade show"
+                style="color: red; background-color: aliceblue; font-size: x-large; text-align: center;">
+                <%= errorMessage %>
+            </p>
+            <% } %>
+
+                <div class="main">
+
+                    <div class="topbar">
+
+                        <div class="search">
+                            <label>
+                                <input type="text" placeholder="Search here">
+                                <ion-icon name="search-outline"></ion-icon>
+                            </label>
+                        </div>
+                        <div class="cart-topbar">
+                            <a href="/cart">
+                                <i class='fas fa-shopping-bag' style='font-size:70px; color:black'></i>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="container-item">
+
+                        <h3 class="title-item"> Apple Productions </h3>
+
+                        <div class="products-container">
+
+                            <% listItems.forEach(item=> { %>
+                                <div class="product" data-name="<%= item._id %>">
+                                    <div>
+                                        <img class="img-item" src="/Image/products/<%= item.url_image %>" alt="">
+                                    </div>
+                                    <h3>
+                                        <%= item.name %>
+                                    </h3>
+                                    <div class="price">$<%= item.retail_price %>
+                                    </div>
+                                </div>
+                                <% }); %>
+                        </div>
+
+                    </div>
+
+                    <div class="products-preview">
+
+                        <% listItems.forEach(item=> { %>
+                            <div class="preview" data-target="<%= item._id %>">
+                                <i class="fas fa-times"></i>
+                                <img class="img-item2" src="/Image/products/<%= item.url_image %>" alt="">
+                                <h3>
+                                    <%= item.name %>
+                                </h3>
+                                <p>Barcode: <%= item.barcode %>
+                                </p>
+                                <p>Category: <%= item.category %>
+                                </p>
+                                <p>Date creation: <%= item.creation_date %>
+                                </p>
+                                <div class="price">$<%= item.retail_price %>
+                                </div>
+                                <div class="buttons">
+                                    <a data-id="<%= item._id %>" href="#" class="cart">add to cart</a>
+                                </div>
+                            </div>
+                            <% }); %>
+                    </div>
+
                 </div>
-
-               <div class="cart-topbar">
-                <a href="Cart.html">
-                    <i class='fas fa-shopping-bag' style='font-size:36px; color:black'></i>
-                </a>
-               </div>
-
-
-            </div>
-        
-        
-            <div class="container-item">
-            
-                <h3 class="title-item"> Apple Productions </h3>
-            
-                <div class="products-container">
-            
-                    <div class="product" data-name="p-1">
-                        <div>
-                            <img class="img-item" src="Image/ip15pm.png" alt="">
-                        </div>
-                        <h3>Iphone 15 pro max</h3>
-                        <div class="price">$1499.00</div>
-                    </div>
-            
-                    <div class="product" data-name="p-2">
-                        <div>
-                            <img class="img-item" src="Image/ip14pm.png" alt="">
-                        </div>
-                        <h3>Iphone 14 pro max</h3>
-                        <div class="price">$1299.00</div>
-                    </div>
-            
-                    <div class="product" data-name="p-3">
-                        <div>
-                            <img class="img-item" src="Image/ip14p.png" alt="">
-                        </div>
-                        <h3>Iphone 14 plus</h3>
-                        <div class="price">$899.00</div>
-                    </div>
-            
-                    <div class="product" data-name="p-4">
-                        <div>
-                            <img class="img-item" src="Image/ip13.png" alt="">
-                        </div>
-                        <h3>Iphoone 13</h3>
-                        <div class="price">$799.00</div>
-                    </div>
-            
-                    <div class="product" data-name="p-5">
-                        <div>
-                            <img class="img-item" src="Image/ip12.png" alt="">
-                        </div>
-                        <h3>Iphone 12</h3>
-                        <div class="price">$699.00</div>
-                    </div>
-            
-                    <div class="product" data-name="p-6">
-                        <div>
-                            <img class="img-item" src="Image/ip11.png" alt="">
-                        </div>
-                        <h3>Iphone 12</h3>
-                        <div class="price">$599.00</div>
-                    </div>
-                </div>
-            
-            </div>
-
-             <div class="products-preview">
-
-                <div class="preview" data-target="p-1">
-                    <i class="fas fa-times"></i>
-                    <img class="img-item2" src="Image/ip15pm.png" alt="">
-                    <h3>Iphone 15 pro max</h3>
-                    <div class="stars">
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star-half-alt"></i>
-                       <span>( 250 )</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-                    <div class="price">$1499.00</div>
-                    <div class="buttons">
-                       <a href="#" class="buy">buy now</a>
-                       <a href="#" class="cart">add to cart</a>
-                    </div>
-                 </div>
-
-                 <div class="preview" data-target="p-2">
-                    <i class="fas fa-times"></i>
-                    <img class="img-item2" src="Image/ip14pm.png" alt="">
-                    <h3>Iphone 14 pro max</h3>
-                    <div class="stars">
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star-half-alt"></i>
-                       <span>( 250 )</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-                    <div class="price">$1299.00</div>
-                    <div class="buttons">
-                       <a href="#" class="buy">buy now</a>
-                       <a href="#" class="cart">add to cart</a>
-                    </div>
-                 </div>
-
-                 <div class="preview" data-target="p-3">
-                    <i class="fas fa-times"></i>
-                    <img class="img-item2" src="Image/ip14p.png" alt="">
-                    <h3>Iphone 14 plus</h3>
-                    <div class="stars">
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star-half-alt"></i>
-                       <span>( 250 )</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-                    <div class="price">$899.00</div>
-                    <div class="buttons">
-                       <a href="#" class="buy">buy now</a>
-                       <a href="#" class="cart">add to cart</a>
-                    </div>
-                 </div>
-
-                 <div class="preview" data-target="p-4">
-                    <i class="fas fa-times"></i>
-                    <img class="img-item2" src="Image/ip13.png" alt="">
-                    <h3>Iphone 13</h3>
-                    <div class="stars">
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star-half-alt"></i>
-                       <span>( 250 )</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-                    <div class="price">$799.00</div>
-                    <div class="buttons">
-                       <a href="#" class="buy">buy now</a>
-                       <a href="#" class="cart">add to cart</a>
-                    </div>
-                 </div>
-
-                 <div class="preview" data-target="p-5">
-                    <i class="fas fa-times"></i>
-                    <img class="img-item2" src="Image/ip12.png" alt="">
-                    <h3>Iphone 12</h3>
-                    <div class="stars">
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star-half-alt"></i>
-                       <span>( 250 )</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-                    <div class="price">$699.00</div>
-                    <div class="buttons">
-                       <a href="#" class="buy">buy now</a>
-                       <a href="#" class="cart">add to cart</a>
-                    </div>
-                 </div>
-
-                 <div class="preview" data-target="p-6">
-                    <i class="fas fa-times"></i>
-                    <img class="img-item2" src="Image/ip11.png" alt="">
-                    <h3>Iphone 11</h3>
-                    <div class="stars">
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star"></i>
-                       <i class="fas fa-star-half-alt"></i>
-                       <span>( 250 )</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-                    <div class="price">$599.00</div>
-                    <div class="buttons">
-                       <a href="#" class="buy">buy now</a>
-                       <a href="#" class="cart">add to cart</a>
-                    </div>
-                 </div>
-             </div>
-        
-        
-        
-        
-        </div>
-
-
-    
-
-
-
-
 
     </div>
 
-    
+
+
+
     <!--======= JavaScript =============  -->
-    <script src="Style/main.js"></script>
+    <script src="/Style/main.js"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        document.querySelector('.products-preview').addEventListener('click', function (event) {
+            if (event.target.classList.contains('cart')) {
+                const itemId = event.target.getAttribute('data-id');
+
+                // add product with this id to cart in database
+            }
+        })
+
+        setTimeout(function () {
+            var errorMessageAlert = document.getElementById('errorMessageAlert');
+            if (errorMessageAlert) {
+                errorMessageAlert.style.display = 'none';
+            }
+        }, 2000);
+    </script>
 </body>
 
 </html>
