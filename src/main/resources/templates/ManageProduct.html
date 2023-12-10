@@ -124,19 +124,13 @@
                         </div>
                     </div>
 
-                    <% if(errorMessage.length > 0) { %>
-                        <div id="errorMessageAlert" class="alert fade show" style="color: red; font-size: x-large; text-align: center;">
-                            <%= errorMessage %>
-                          <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        </div>
-                    <% } %>
+                    <div th:if="${errorMessage != null}" th:text="${errorMessage}" id="errorMessageAlert" class="alert fade show" style="color: red; font-size: x-large; text-align: center;">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    </div>
 
-                    <% if(successMessage.length > 0) { %>
-                        <div id="successMessageAlert" class="alert fade show" style="color: rgb(45, 177, 45); font-size: x-large; text-align: center;">
-                            <%= successMessage %>
-                          <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        </div>
-                    <% } %>
+                    <div th:if="${successMessage != null}" th:text="${successMessage}" id="successMessageAlert" class="alert fade show" style="color: rgb(45, 177, 45); font-size: x-large; text-align: center;">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    </div>
         
                     <table class="table table-striped table-hover">
                         <thead>
@@ -154,29 +148,28 @@
                         </thead>
         
                         <tbody>
-                            <% listItems.forEach(item => { %>
-                                <tr>
-                                    <td><img src="/Image/products/<%= item.url_image %>" alt="Product Image" style="width: 100%; height: 100px;"></td>
-                                    <td><%= item.barcode %></td>
-                                    <td><%= item.name %></td>
-                                    <td><%= item.import_price %></td>
-                                    <td><%= item.retail_price %></td>
-                                    <td><%= item.category %></td>
-                                    <td><%= item.creation_date %></td>
-                                    <td>
-                                        <a href="#" class="edit" 
-                                            data-id="<%= item._id %>" 
-                                            data-barcode="<%= item.barcode %>"
-                                            data-name="<%= item.name %>"
-                                            data-import_price="<%= item.import_price %>"
-                                            data-retail_price="<%= item.retail_price %>"
-                                            data-category="<%= item.category %>"
-                                            data-url_image="<%= item.url_image %>"
-                                            >&#9998;</a>
-                                        <a href="#" class="delete" data-id="<%= item._id %>">&#128465;</a>
-                                    </td>
-                                </tr>
-                            <% }); %>
+                            <tr th:each="p: ${products}">
+                                <td><img th:src="${p.urlImage}" alt="product" style="width: 100%; height: 100px;" /></td>
+                                <td th:text="${p.barCode}"></td>
+                                <td th:text="${p.name}"></td>
+                                <td th:text="${p.importPrice}"></td>
+                                <td th:text="${p.retailPrice}"></td>
+                                <td th:text="${p.category}"></td>
+                                <td th:text="${p.createDate}"></td>
+                                <td>
+                                    <a href="#" class="edit"
+                                       th:data-id="${p.id}"
+                                       th:data-barcode="${p.barCode}"
+                                       th:data-name="${p.name}"
+                                       th:data-import_price="${p.importPrice}"
+                                       th:data-retail_price="${p.retailPrice}"
+                                       th:data-category="${p.category}"
+                                       th:data-url_image="${p.urlImage}"
+                                    >&#9998;</a>
+
+                                    <a href="#" class="delete" th:data-id="${p.id}">&#128465;</a>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -368,7 +361,6 @@
             closeModal('deleteItemModal');
         });
 
-        //hang add
         setTimeout(function() {
             var errorMessageAlert = document.getElementById('errorMessageAlert');
             var successMessageAlert = document.getElementById('successMessageAlert');

@@ -2,13 +2,24 @@ package com.tt.service;
 
 import com.tt.entity.Product;
 import com.tt.repository.ProductRepository;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.Part;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.servlet.annotation.MultipartConfig;
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@MultipartConfig()
 public class ProductService {
     private ProductRepository repo;
 
@@ -41,4 +52,12 @@ public class ProductService {
         Optional<Product> p = repo.findById(id);
         return p.map(Product::getName).orElse(null);
     }
+
+    public String getCurrentDay(){
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return currentDate.format(formatter);
+    }
+
+
 }

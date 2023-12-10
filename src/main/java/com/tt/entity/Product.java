@@ -18,8 +18,8 @@ public class Product {
     private int id;
     private String barCode;
     private String name;
-    private int importNumber;
-    private int retaiNumber;
+    private int importPrice;
+    private int retailPrice;
     private String category;
     private String createDate;
     private String urlImage;
