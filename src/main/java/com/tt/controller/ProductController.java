@@ -66,7 +66,9 @@ public class ProductController {
 //        else{
 
         Part part = req.getPart("image");
-        String uploadPath = "E:\\code\\third_year\\Final Java\\final\\src\\main\\resources\\static\\Image\\products";
+        File file = new File("");
+        String currentDirectory = file.getAbsolutePath();
+        String uploadPath = currentDirectory + "\\src\\main\\resources\\static\\Image\\products";
         String destination = uploadPath + File.separator + part.getSubmittedFileName();
         String url = "\\Image\\products" + File.separator + part.getSubmittedFileName();
         part.write(destination);
