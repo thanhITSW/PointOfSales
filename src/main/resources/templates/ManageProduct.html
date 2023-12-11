@@ -149,7 +149,7 @@
         
                         <tbody>
                             <tr th:each="p: ${products}">
-                                <td><img th:src="${p.urlImage}" alt="product" style="width: 100%; height: 100px;" /></td>
+                                <td><img th:src="@{'/Image/products/' + ${p.urlImage}}" alt="product" style="width: 100%; height: 100px;" /></td>
                                 <td th:text="${p.barCode}"></td>
                                 <td th:text="${p.name}"></td>
                                 <td th:text="${p.importPrice}"></td>
@@ -179,7 +179,7 @@
             <div class="modal" id="addItemModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form method="post" action="/products/add" enctype="multipart/form-data">
+                        <form method="post" action="/products/add" enctype="multipart/form-data" th:object="${products}">
                             <div class="modal-header">
                                 <h5 class="modal-title" style="color: black;">Add New Item</h5>
                                 <span class="close" id="addItemCloseBtn">&times;</span>
@@ -223,7 +223,7 @@
             <div class="modal" id="editItemModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form method="post" action="/products/edit" enctype="multipart/form-data">
+                        <form method="post" action="/products/edit" enctype="multipart/form-data" th:object="${products}">
                             <div class="modal-header">
                                 <h5 class="modal-title">Edit Item</h5>
                                 <span class="close" id="editItemCloseBtn">&times;</span>
@@ -233,7 +233,7 @@
                                 <input id="editUrlImage" type="text" name="url_image" style="display: none;">
                                 <div class="form-group">
                                     <label for="editBarcode" style="color: black;">Barcode</label>
-                                    <input type="text" name="barcode" id="editBarcode" class="form-control" required>
+                                    <input type="text" name="barCode" id="editBarcode" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="editName" style="color: black;">Name</label>
@@ -241,11 +241,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="editImportPrice" style="color: black;">Import Price</label>
-                                    <input type="number" name="import_price" id="editImportPrice" class="form-control" required>
+                                    <input type="number" name="importPrice" id="editImportPrice" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="editRetailPrice" style="color: black;">Retail Price</label>
-                                    <input type="number" name="retail_price" id="editRetailPrice" class="form-control" required>
+                                    <input type="number" name="retailPrice" id="editRetailPrice" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="editCategory" style="color: black;">Category</label>
@@ -269,7 +269,7 @@
             <div class="modal" id="deleteItemModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form method="post" action="/products/delete">
+                        <form method="post" action="/products/delete" th:object="${products}">
                             <div class="modal-header">
                                 <h5 class="modal-title">Delete Item</h5>
                                 <span class="close" id="deleteItemCloseBtn">&times;</span>
@@ -366,9 +366,11 @@
             var successMessageAlert = document.getElementById('successMessageAlert');
             if (errorMessageAlert) {
                 errorMessageAlert.style.display = 'none';
+                window.location.href = '/products';
             }
             if(successMessageAlert) {
                 successMessageAlert.style.display = 'none';
+                window.location.href = '/products';
             }
         }, 2000);
     

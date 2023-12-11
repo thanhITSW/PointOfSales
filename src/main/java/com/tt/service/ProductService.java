@@ -44,6 +44,7 @@ public class ProductService {
         return repo.findById(id).orElse(null);
     }
 
+
     public boolean isExists(int id){
         return repo.existsById(id);
     }
@@ -57,6 +58,21 @@ public class ProductService {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         return currentDate.format(formatter);
+    }
+
+    public Product updateById(int id, Product p){
+        Optional<Product> x = repo.findById(id);
+        if(!x.isPresent()) return null;
+
+        Product t = x.get();
+        t.setName(p.getName());
+        t.setBarCode(p.getBarCode());
+        t.setCreateDate(p.getCreateDate());
+        t.setCategory(p.getCategory());
+        t.setUrlImage(p.getUrlImage());
+        t.setImportPrice(p.getImportPrice());
+        t.setRetailPrice(p.getRetailPrice());
+        return repo.save(t);
     }
 
 
