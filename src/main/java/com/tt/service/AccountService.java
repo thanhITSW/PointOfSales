@@ -46,9 +46,7 @@ public class AccountService {
         t.setFullName(p.getFullName());
         t.setEmail(p.getEmail());
         t.setPhoneNumber(p.getPhoneNumber());
-        t.setRole(p.getRole());
-        t.setActive(p.isActive());
-        t.setStatus(p.getStatus());
+        t.setUrlAvatar(p.getUrlAvatar());
         return repo.save(t);
     }
 }

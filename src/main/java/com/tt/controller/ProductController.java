@@ -66,14 +66,20 @@ public class ProductController {
         else {
 
             Part part = req.getPart("image");
-            File file = new File("");
-            String currentDirectory = file.getAbsolutePath();
-            String uploadPath = currentDirectory + "\\src\\main\\resources\\static\\Image\\products";
-            String destination = uploadPath + File.separator + part.getSubmittedFileName();
-            String url = part.getSubmittedFileName();
-            part.write(destination);
+            if (part.getSize() > 0){
+                File file = new File("");
+                String currentDirectory = file.getAbsolutePath();
+                String uploadPath = currentDirectory + "\\src\\main\\resources\\static\\Image\\products";
+                String destination = uploadPath + File.separator + part.getSubmittedFileName();
+                String url = part.getSubmittedFileName();
+                part.write(destination);
 
-            p.setUrlImage(url);
+                p.setUrlImage(url);
+            }
+            else {
+                p.setUrlImage("default.png");
+            }
+
             p.setCreateDate(service.getCurrentDay());
             model.addAttribute("successMessage", "Add product sucessfully!");
             service.add(p);
@@ -107,6 +113,13 @@ public class ProductController {
                 String destination = uploadPath + File.separator + part.getSubmittedFileName();
                 String url = part.getSubmittedFileName();
                 part.write(destination);
+
+                //xoa image truoc do
+                String imagePath = uploadPath + File.separator + existingProduct.getUrlImage();
+                File imageFile = new File(imagePath);
+                if (imageFile.exists()) {
+                    imageFile.delete();
+                }
 
                 existingProduct.setUrlImage(url);
             }
@@ -151,8 +164,4 @@ public class ProductController {
             return "ManageProduct";
         }
     }
-
-
-
-
 }
