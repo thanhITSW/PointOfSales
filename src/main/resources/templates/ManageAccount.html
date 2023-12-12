@@ -116,7 +116,7 @@
 
             <div class="main-content">
                 <div class="table-wrapper">
-        
+
                     <div class="table-title">
                         <h2>Manage Employees</h2>
                         <div>
@@ -136,9 +136,14 @@
                         <button type="button" class="close" data-dismiss="alert">&times;</button>
                     </div>
 
+                    <div id="messageAlert" class="alert fade show" style="font-size: x-large; text-align: center; display: none;">
+                        messageAlert
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    </div>
 
 
-        
+
+
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -164,7 +169,7 @@
                             </tr>
 
                         </thead>
-        
+
                         <tbody>
                             <tr th:each="a: ${accounts}">
                                 <td>
@@ -199,7 +204,7 @@
                     </table>
                 </div>
             </div>
-        
+
             <!-- Add Employee Modal -->
             <div class="modal" id="addEmployeeModal">
                 <div class="modal-dialog">
@@ -244,7 +249,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <!-- Edit Employee Modal -->
             <div class="modal" id="editEmployeeModal">
                 <div class="modal-dialog">
@@ -282,7 +287,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <!-- Delete Employee Modal -->
             <div class="modal" id="deleteEmployeeModal">
                 <div class="modal-dialog">
@@ -305,7 +310,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
     </div>
@@ -325,25 +330,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        
+
         function showModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.style.display = 'flex';
         }
-    
+
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.style.display = 'none';
         }
-    
+
         document.getElementById('addEmployeeBtn').addEventListener('click', function () {
             showModal('addEmployeeModal');
         });
-    
+
         document.getElementById('addEmployeeCancelBtn').addEventListener('click', function () {
             closeModal('addEmployeeModal');
         });
-    
+
         document.querySelector('tbody').addEventListener('click', function (event) {
             if (event.target.classList.contains('edit')) {
 
@@ -368,11 +373,11 @@
                 showModal('deleteEmployeeModal');
             }
         });
-    
+
         document.getElementById('editEmployeeCancelBtn').addEventListener('click', function () {
             closeModal('editEmployeeModal');
         });
-    
+
         document.getElementById('deleteEmployeeCancelBtn').addEventListener('click', function () {
             closeModal('deleteEmployeeModal');
         });
@@ -390,7 +395,8 @@
         });
 
         document.getElementById('reSendEmailBtn').addEventListener('click', function () {
-            sendFormWithUrl('/accounts/resend-email');
+            sendFormWithUrl('/accounts/resend-email', true);
+            alert("Send resend-mail successfully!");
         });
 
         document.getElementById('selectAll').addEventListener('click', function () {
@@ -399,6 +405,7 @@
                 checkbox.checked = document.getElementById('selectAll').checked;
             });
         });
+
 
         //xu li checkbox
         function sendFormWithUrl(url, isReload, status) {
@@ -427,31 +434,6 @@
             xhr.addEventListener('load', e => {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
-                        const successMessageAlert = document.getElementById('successMessageAlert');
-                        const errorMessageAlert = document.getElementById('errorMessageAlert');
-
-                        if (successMessageAlert) {
-                            successMessageAlert.innerHTML = "Selected accounts deleted successfully!";
-                            successMessageAlert.style.color = 'rgb(45, 177, 45)';
-                            successMessageAlert.style.display = 'block';
-
-                            setTimeout(function () {
-                                successMessageAlert.style.display = 'none';
-                                window.location.href = '/accounts';
-                            }, 2000);
-                        }
-
-                        if (errorMessageAlert) {
-                            errorMessageAlert.innerHTML = "No accounts selected for deletion.";
-                            errorMessageAlert.style.color = 'red';
-                            errorMessageAlert.style.display = 'block';
-
-                            setTimeout(function () {
-                                errorMessageAlert.style.display = 'none';
-                                window.location.href = '/accounts';
-                            }, 2000);
-                        }
-
                         if (isReload) {
                             setTimeout(function () {
                                 window.location.href = '/accounts';
@@ -478,6 +460,31 @@
                 window.location.href = '/accounts';
             }
         }, 2000);
+        //
+        // function showAndHideMessage(messageContent, rgbaColor, duration, isReload) {
+        //     var messageAlert = document.getElementById('messageAlert');
+        //
+        //     if (messageAlert) {
+        //         messageAlert.innerHTML = messageContent;
+        //
+        //         if (rgbaColor) {
+        //             messageAlert.style.color = rgbaColor;
+        //         }
+        //         messageAlert.style.display = 'block';
+        //
+        //         if(isReload) {
+        //             setTimeout(function () {
+        //                 window.location.reload();
+        //             }, 300);
+        //         }
+        //
+        //         setTimeout(function () {
+        //             messageAlert.style.display = 'none';
+        //
+        //         }, duration);
+        //     }
+        // }
+
 
     </script>
 </body>

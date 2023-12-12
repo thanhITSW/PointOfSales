@@ -1,22 +1,31 @@
 package com.tt.controller;
 
 import com.tt.entity.Account;
-import com.tt.entity.Product;
 import com.tt.service.AccountService;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.Part;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 @Controller
 @RequestMapping("/accounts")
 public class AccountController {
+
+    @Autowired
+    private JavaMailSender mailSender;
     AccountService service;
 
     public AccountController(AccountService service) {
@@ -185,10 +194,10 @@ public class AccountController {
                 model.addAttribute("errorMessageAlert", "No accounts selected for deletion.");
             }
 
-            return "ManageAccount";
+            return "redirect:/accounts";
         } catch (Exception e) {
             model.addAttribute("errorMessageAlert", "Error deleting accounts: " + e.getMessage());
-            return "ManageAccount";
+            return "redirect:/accounts";
         }
     }
 
@@ -213,10 +222,59 @@ public class AccountController {
                 model.addAttribute("errorMessageAlert", "No accounts selected for status update.");
             }
 
-            return "ManageAccount";
+            return "redirect:/accounts";
         } catch (Exception e) {
             model.addAttribute("errorMessageAlert", "Error updating account status: " + e.getMessage());
-            return "ManageAccount";
+            return "redirect:/accounts";
         }
     }
+
+    @PostMapping("/resend-email")
+    public String resendEmail(@RequestParam(value = "selectedIds", required = false) List<Integer> selectedIds,
+                              Model model) throws MessagingException, UnsupportedEncodingException {
+
+        try {
+            if (selectedIds != null && !selectedIds.isEmpty()) {
+                for (Integer accountId : selectedIds) {
+                    Account existingAccount = service.findById(accountId);
+                    if (existingAccount != null) {
+                        MimeMessage message = mailSender.createMimeMessage();
+                        MimeMessageHelper helper = new MimeMessageHelper(message);
+                        helper.setFrom("tanthanhvn13@gmail.com");
+
+                        helper.setTo(existingAccount.getEmail());
+
+                        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&";
+                        String pwd = RandomStringUtils.random( 6, characters );
+
+                        existingAccount.setPassword(pwd);
+                        service.add(existingAccount);
+                        String subject = "Đây là đường link để đổi mật khẩu";
+
+                        String context = "<p>Xin chào,</p>"
+                                + "<p>Bạn có yêu cầu được thay đổi mật khẩu.</p>"
+                                + "<p>Đây là mật khẩu mới hệ thống cung cấp cho bạn: <strong style='color: red;'>" + pwd + "</strong></p>"
+                                + "<br>"
+                                + "<p>Vui lòng bỏ qua email này nếu bạn nhớ được mật khẩu, "
+                                + "hoặc bạn không gửi yêu cầu đổi mật khẩu.</p>";
+                        helper.setSubject(subject);
+
+                        helper.setText(context, true);
+
+                        mailSender.send(message);
+                    }
+                }
+
+                model.addAttribute("successMessageAlert", "Resend Email successfully!");
+            } else {
+                model.addAttribute("errorMessageAlert", "No accounts selected for status update.");
+            }
+
+            return "redirect:/accounts";
+        } catch (Exception e) {
+            model.addAttribute("errorMessageAlert", "Error updating account status: " + e.getMessage());
+            return "redirect:/accounts";
+        }
+    }
+
 }
