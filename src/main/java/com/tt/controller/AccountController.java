@@ -240,7 +240,7 @@ public class AccountController {
                     if (existingAccount != null) {
                         MimeMessage message = mailSender.createMimeMessage();
                         MimeMessageHelper helper = new MimeMessageHelper(message);
-                        helper.setFrom("tanthanhvn13@gmail.com");
+                        helper.setFrom("tanthanhvn13@gmail.com", "Apple store");
 
                         helper.setTo(existingAccount.getEmail());
 
