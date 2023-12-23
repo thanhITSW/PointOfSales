@@ -39,6 +39,13 @@ public class AccountController {
         return "ManageAccount";
     }
 
+    @GetMapping("/list-employees")
+    public String listEmployee(Model model){
+        List<Account> accountList = service.getAll();
+        model.addAttribute("accounts", accountList);
+        return "ListEmployees";
+    }
+
     @GetMapping("/add")
     public String getAdd(){
         return "redirect:/accounts";

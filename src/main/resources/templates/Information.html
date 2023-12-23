@@ -30,85 +30,99 @@
 </head>
 
 <body>
-    <div class="container">
-        <!-- =============== Navigation ================ -->
-        <div class="navigation">
-            <div class="menu-btn">
-                <ion-icon name="menu-outline"></ion-icon>
-            </div>
-
-            <div class="side-bar">
-                <header>
-                    <div class="close-btn">
-                        <ion-icon name="close-outline"></ion-icon>
-                    </div>
-                    <img class="logo-leftbar" src="/Image/Apple.jpg" alt="">
-                    <h1>Apple Store</h1>
-                </header>
-
-                <div class="menu">
-
-                    <div class="item">
-                        <a href="/dashboard">
-                            <i class="far fa-eye"></i>
-                            Dashboard
-                        </a>
-                    </div>
-
-                    <div class="item">
-                        <a href="/">
-                            <i class="fas fa-house-user"></i>
-                            Home
-                        </a>
-                    </div>
-
-                    <div class="item">
-                        <a class="sub-btn">
-                            <i class="fas fa-box-open"></i>
-                            Products
-                            <i class="fas fa-angle-right dropdown"></i>
-                        </a>
-
-                        <div class="sub-menu">
-                            <a href="/products" class="sub-item">
-                                <i class="far fa-clipboard"></i>
-                                Manage Production
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <a class="sub-btn">
-                            <i class="fas fa-user-lock"></i>
-                            Account
-                            <i class="fas fa-angle-right dropdown"></i>
-                        </a>
-
-                        <div class="sub-menu">
-                            <a href="/accounts" class="sub-item">
-                                <i class="far fa-plus-square"></i>
-                                Manage account
-                            </a>
-
-                            <a href="/information" class="sub-item">
-                                <i class="fas fa-user"></i>
-                                Your information
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <a href="/check-out">
-                            <i class="fab fa-apple-pay" style='font-size:20px'></i>
-                            Check Out
-                        </a>
-                    </div>
-
-                    <div class="item"><a href="/accounts/logout"><i class='fas fa-sign-out-alt'></i>Logout</a></div>
-                </div>
-            </div>
-
+<div class="container">
+    <!-- =============== Navigation ================ -->
+    <div class="navigation">
+        <div class="menu-btn">
+            <ion-icon name="menu-outline"></ion-icon>
         </div>
+
+        <div class="side-bar">
+            <header>
+                <div class="close-btn">
+                    <ion-icon name="close-outline"></ion-icon>
+                </div>
+                <img class="logo-leftbar" src="/Image/Apple.jpg" alt="">
+                <h1>Apple Store</h1>
+            </header>
+
+            <div class="menu">
+
+                <div class="item">
+                    <a href="/">
+                        <i class="fas fa-house-user"></i>
+                        Home
+                    </a>
+                </div>
+
+                <div class="item">
+                    <a href="/recent-order">
+                        <i class="far fa-eye"></i>
+                        Recent Order
+                    </a>
+                </div>
+
+                <div class="item">
+                    <form id="reportForm" action="/orders/report" method="post">
+                        <a onclick="submitForm()">
+                            <i class="fas fa-chart-area"></i>
+                            Report And Analytics
+                        </a>
+                    </form>
+                </div>
+
+                <div class="item">
+                    <a class="sub-btn">
+                        <i class="fas fa-box-open"></i>
+                        Products
+                        <i class="fas fa-angle-right dropdown"></i>
+                    </a>
+
+                    <div class="sub-menu">
+                        <a href="/products" class="sub-item">
+                            <i class="far fa-clipboard"></i>
+                            Manage Production
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <a class="sub-btn">
+                        <i class="fas fa-user-lock"></i>
+                        Account
+                        <i class="fas fa-angle-right dropdown"></i>
+                    </a>
+
+                    <div class="sub-menu">
+                        <a href="/accounts" class="sub-item">
+                            <i class="far fa-plus-square"></i>
+                            Manage account
+                        </a>
+
+                        <a href="/accounts/list-employees" class="sub-item">
+                            <i class="fas fa-list"></i>
+                            List employees
+                        </a>
+
+                        <a href="/information" class="sub-item">
+                            <i class="fas fa-user"></i>
+                            Your information
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <a href="/carts/check-out">
+                        <i class="fab fa-apple-pay" style='font-size:20px'></i>
+                        Check Out
+                    </a>
+                </div>
+
+                <div class="item"><a href="/accounts/logout"><i class='fas fa-sign-out-alt'></i>Logout</a></div>
+            </div>
+        </div>
+
+    </div>
 
 
         <!-- =================== Main =============== -->

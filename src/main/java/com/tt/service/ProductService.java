@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.servlet.annotation.MultipartConfig;
+
+import javax.swing.plaf.PanelUI;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -58,6 +60,13 @@ public class ProductService {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         return currentDate.format(formatter);
+    }
+
+    public List<Product> findByName(String name){
+        List<Product> productList = new ArrayList<>();
+        for(Product p : getAll()){
+            if()
+        }
     }
 
     public Product updateById(int id, Product p){
