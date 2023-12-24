@@ -129,22 +129,17 @@
 
                 <div class="products">
 
-                    <% listCarts.forEach(cart=> { %>
-                    <div class="product-item-cart">
-                        <img class="product-img" src="/Image/products/<%= cart.url_image %>">
+                    <div th:each="p: ${listCarts}" class="product-item-cart">
+                        <img class="product-img" th:src="@{'/Image/products/' + ${p.url_image}}">
                         <div class="product-info">
-                            <h3 class="product-name">
-                                <%= cart.productName %>
+                            <h3 th:text="${p.getProductName()}" class="product-name">
                             </h3>
-                            <h4 class="product-barcode">
-                                <%= cart.productBarcode %>
+                            <h4 th:text="${p.productBarcode}" class="product-barcode">
                             </h4>
-                            <h4 class="product-price">$ <%= cart.price %>
+                            <h4 th:text="@{'$' + ${p.price}}" class="product-price">
                             </h4>
-                            <h4 class="product-quantity">Quantity: <strong>
-                                <%= cart.quantity %>
-                            </strong></h4>
-                            <h4 class="product-total">Total: <strong>$ <%= cart.totalPrice %></strong></h4>
+                            <h4 th:text="@{'Quantity: ' + ${p.quantity}}" class="product-quantity"></h4>
+                            <h4 th:text="@{'Total: $' + ${p.totalPrice}}" class="product-total"></h4>
                             <p class="product-remove">
                                 <i class="fa fa-trash" style="font-size: 15px;" aria-hidden="true"></i>
                                 <span data-barcode="<%= cart.productBarcode %>" class="remove"
@@ -152,15 +147,13 @@
                             </p>
                         </div>
                     </div>
-                    <% }); %>
 
                 </div>
 
                 <div class="cart-total">
                     <p>
                         <span style="color: black;">Employee: &emsp;</span>
-                        <span style="color: black;">
-                                <%= employeeName %>
+                        <span th:text="${employeeName}" style="color: black;">
                             </span>
                     </p>
 

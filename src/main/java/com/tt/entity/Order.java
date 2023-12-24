@@ -5,6 +5,7 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Entity
 @NoArgsConstructor
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class Order {
     @Id
+    @NonNull
     private String employeeName;
     private String customerPhone;
     private String customerName;

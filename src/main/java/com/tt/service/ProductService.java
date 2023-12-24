@@ -65,8 +65,12 @@ public class ProductService {
     public List<Product> findByName(String name){
         List<Product> productList = new ArrayList<>();
         for(Product p : getAll()){
-            if()
+            if(p.getName().matches("(.*)" + name + "(.*)") || p.getBarCode().matches("(.*)" + name + "(.*)")
+            || p.getName().contains(name) || p.getBarCode().contains(name)){
+                productList.add(p);
+            }
         }
+        return productList;
     }
 
     public Product updateById(int id, Product p){

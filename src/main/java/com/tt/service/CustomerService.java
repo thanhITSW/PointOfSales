@@ -1,6 +1,5 @@
 package com.tt.service;
 
-import com.tt.entity.Cart;
 import com.tt.entity.Customer;
 import com.tt.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
